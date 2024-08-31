@@ -112,7 +112,7 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      const socketio = io("https://mohitsocialmedia.onrender.com", {
+      const socketio = io("https://mksocialmedia.onrender.com", {
         query: {
           userId: user?._id,
         },

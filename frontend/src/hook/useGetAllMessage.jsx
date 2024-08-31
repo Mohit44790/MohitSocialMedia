@@ -13,7 +13,7 @@ const useGetAllMessage = () => {
     const fetchAllMessage = async () => {
       try {
         const res = await axios.get(
-          `https://mohitsocialmedia.onrender.com/message/all/${selectedUser._id}`,
+          `https://mksocialmedia.onrender.com/message/all/${selectedUser._id}`,
           { withCredentials: true }
         );
         if (res.data.success) {

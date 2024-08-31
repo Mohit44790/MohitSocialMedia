@@ -26,7 +26,7 @@ const SignUp = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://mohitsocialmedia.onrender.com/user/register",
+        "https://mksocialmedia.onrender.com/user/register",
         input,
         {
           headers: {

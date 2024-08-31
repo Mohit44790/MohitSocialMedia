@@ -11,7 +11,7 @@ const useGetUserProfile = (userId) => {
     const fetchUserProfile = async () => {
       try {
         const res = await axios.get(
-          `https://mohitsocialmedia.onrender.com/user/${userId}/profile`,
+          `https://mksocialmedia.onrender.com/user/${userId}/profile`,
           {
             withCredentials: true,
           }

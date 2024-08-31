@@ -1,1 +1,1 @@
-export const SERVER = "https://mohitsocialmedia.onrender.com";
+export const SERVER = "https://mksocialmedia.onrender.com";

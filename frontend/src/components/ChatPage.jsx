@@ -21,7 +21,7 @@ const ChatPage = () => {
   const sendMessageHandler = async (receiverId) => {
     try {
       const res = await axios.post(
-        "https://mohitsocialmedia.onrender.com/message/send/${receiverId}",
+        "https://mksocialmedia.onrender.com/message/send/${receiverId}",
         { textMessage },
         {
           headers: {

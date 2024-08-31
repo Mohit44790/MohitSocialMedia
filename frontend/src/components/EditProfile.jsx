@@ -43,7 +43,7 @@ const EditProfile = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://mohitsocialmedia.onrender.com}/user/profile/edit",
+        "https://mksocialmedia.onrender.com/user/profile/edit",
         formData,
         {
           headers: {

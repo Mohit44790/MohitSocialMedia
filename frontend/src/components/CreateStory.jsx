@@ -42,7 +42,7 @@ const CreateStory = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://mohitsocialmedia.onrender.com/stories/upload",
+        "https://mksocialmedia.onrender.com/stories/upload",
         formData,
         {
           headers: {

@@ -10,7 +10,7 @@ const useGetAllPost = () => {
     const fetchAllPost = async () => {
       try {
         const res = await axios.get(
-          "https://mohitsocialmedia.onrender.com/post/all",
+          "https://mksocialmedia.onrender.com/post/all",
           {
             withCredentials: true,
           }
