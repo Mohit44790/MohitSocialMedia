@@ -33,7 +33,7 @@ const Profile = () => {
     try {
       const action = isFollowing ? "unfollow" : "follow";
       const res = await axios.post(
-        `https://mksocialmedia.onrender.com/api/v1/user/followerorunfollow/${userProfile._id}`,
+        `https://mohitsocialmedia.onrender.com/api/v1/user/followerorunfollow/${userProfile._id}`,
         {},
         {
           withCredentials: true,

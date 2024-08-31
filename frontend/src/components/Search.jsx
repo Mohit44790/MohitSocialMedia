@@ -15,7 +15,7 @@ const Search = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        "https://mksocialmedia.onrender.com/api/v1/user/users/search",
+        "https://mohitsocialmedia.onrender.com/api/v1/user/users/search",
         {
           params: { q: searchQuery }, // Send query as parameter
         }

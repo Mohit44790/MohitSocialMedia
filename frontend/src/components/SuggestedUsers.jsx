@@ -25,7 +25,7 @@ const SuggestedUsers = () => {
     try {
       const action = followingStatus[userId] ? "unfollow" : "follow";
       const res = await axios.post(
-        `https://mksocialmedia.onrender.com/api/v1/user/followerorunfollow/${userId}`,
+        `https://mohitsocialmedia.onrender.com/api/v1/user/followerorunfollow/${userId}`,
         {},
         {
           withCredentials: true,

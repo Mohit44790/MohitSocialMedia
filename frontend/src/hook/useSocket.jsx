@@ -14,7 +14,7 @@ const useSocket = (user) => {
 
   useEffect(() => {
     if (user) {
-      socket.current = io("https://mksocialmedia.onrender.com", {
+      socket.current = io("https://mohitsocialmedia.onrender.com", {
         query: {
           userId: user?._id,
         },

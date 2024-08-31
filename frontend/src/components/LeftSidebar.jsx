@@ -32,7 +32,7 @@ const LeftSidebar = () => {
   const logoutHandler = async () => {
     try {
       const res = await axios.get(
-        "https://mksocialmedia.onrender.com/api/v1/user/logout",
+        "https://mohitsocialmedia.onrender.com/api/v1/user/logout",
         {
           withCredentials: true,
         }
