@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { FaPlus, FaImage, FaUserCircle } from "react-icons/fa"; // Add FaPlus for the plus icon
-import { SERVER } from "./Server";
+
 import { setStorys } from "../redux/storySlice";
 
 const CreateStory = () => {
@@ -41,12 +41,16 @@ const CreateStory = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post(`${SERVER}/stories/upload`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        "https://mohitsocialmedia.onrender.com/stories/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
+      );
       if (res.data.success) {
         dispatch(setStorys([res.data.story, ...storys])); // Update stories in the Redux store
         setOpen(false); // Close modal after successful story creation

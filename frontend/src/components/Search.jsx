@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { SERVER } from "./Server";
+
 import { FaUserCircle } from "react-icons/fa";
 
 const Search = () => {
@@ -14,9 +14,12 @@ const Search = () => {
   const fetchResults = async (searchQuery) => {
     try {
       setLoading(true);
-      const response = await axios.get(`${SERVER}/user/users/search`, {
-        params: { q: searchQuery }, // Send query as parameter
-      });
+      const response = await axios.get(
+        "https://mohitsocialmedia.onrender.com/user/users/search",
+        {
+          params: { q: searchQuery }, // Send query as parameter
+        }
+      );
       setResults(response.data);
     } catch (error) {
       console.error("Error fetching search results", error);

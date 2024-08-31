@@ -6,7 +6,6 @@ import { FaHeart, FaUserCircle } from "react-icons/fa";
 import { FiAtSign, FiMessageCircle } from "react-icons/fi";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { SERVER } from "./Server";
 
 const Profile = () => {
   const params = useParams();
@@ -34,7 +33,7 @@ const Profile = () => {
     try {
       const action = isFollowing ? "unfollow" : "follow";
       const res = await axios.post(
-        `${SERVER}/user/followerorunfollow/${userProfile._id}`,
+        `https://mohitsocialmedia.onrender.com/user/followerorunfollow/${userProfile._id}`,
         {},
         {
           withCredentials: true,

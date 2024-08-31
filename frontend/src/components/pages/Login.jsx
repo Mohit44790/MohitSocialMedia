@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuthUser } from "../../redux/authSlice";
-import { SERVER } from "../Server";
+
 import { displayPhone, loginImages } from "./DataImg";
 import useInterval from "../../hook/useInterval";
 
@@ -28,12 +28,16 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post(`${SERVER}/user/login`, input, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        "https://mohitsocialmedia.onrender.com/user/login",
+        input,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
 
       if (res.data.success) {
         dispatch(setAuthUser(res.data.user));

@@ -8,7 +8,6 @@ import { FaUserCircle } from "react-icons/fa";
 import { setSelectedUser } from "../redux/authSlice";
 import Messages from "./Messages";
 import { setMessages } from "../redux/chatSlice";
-import { SERVER } from "./Server";
 
 const ChatPage = () => {
   const [textMessage, setTextMessage] = useState("");
@@ -22,7 +21,7 @@ const ChatPage = () => {
   const sendMessageHandler = async (receiverId) => {
     try {
       const res = await axios.post(
-        `${SERVER}/message/send/${receiverId}`,
+        "https://mohitsocialmedia.onrender.com/message/send/${receiverId}",
         { textMessage },
         {
           headers: {

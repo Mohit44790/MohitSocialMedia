@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { setUserProfile } from "../redux/authSlice";
-import { SERVER } from "../components/Server";
 
 const useGetUserProfile = (userId) => {
   const dispatch = useDispatch();
@@ -11,9 +10,12 @@ const useGetUserProfile = (userId) => {
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        const res = await axios.get(`${SERVER}/user/${userId}/profile`, {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          `https://mohitsocialmedia.onrender.com/user/${userId}/profile`,
+          {
+            withCredentials: true,
+          }
+        );
         if (res.data.success) {
           dispatch(setUserProfile(res.data.user));
         }

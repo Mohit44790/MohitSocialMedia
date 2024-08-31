@@ -12,7 +12,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { setPosts, setSelectedPost } from "../../redux/postSlice";
-import { SERVER } from "../Server";
 
 const Post = ({ post }) => {
   const [showOptions, setShowOptions] = useState(false);
@@ -41,7 +40,7 @@ const Post = ({ post }) => {
   const commentHandler = async () => {
     try {
       const res = await axios.post(
-        `${SERVER}/post/${post._id}/comment`,
+        `https://mohitsocialmedia.onrender.com/post/${post._id}/comment`,
         { text },
         {
           headers: {
@@ -71,9 +70,12 @@ const Post = ({ post }) => {
   const likeOrDislikeHandler = async () => {
     try {
       const action = liked ? "dislike" : "like";
-      const res = await axios.get(`${SERVER}/post/${post._id}/${action}`, {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        `https://mohitsocialmedia.onrender.com/post/${post._id}/${action}`,
+        {
+          withCredentials: true,
+        }
+      );
       if (res.data.success) {
         const updatedLikes = liked ? postLike - 1 : postLike + 1;
         setPostLike(updatedLikes);
@@ -100,9 +102,12 @@ const Post = ({ post }) => {
 
   const deletePostHandler = async () => {
     try {
-      const res = await axios.delete(`${SERVER}/post/delete/${post?._id}`, {
-        withCredentials: true,
-      });
+      const res = await axios.delete(
+        `https://mohitsocialmedia.onrender.com/post/delete/${post?._id}`,
+        {
+          withCredentials: true,
+        }
+      );
       if (res.data.message) {
         const updatedPostData = posts.filter(
           (postItem) => postItem?._id !== post?._id
@@ -117,9 +122,12 @@ const Post = ({ post }) => {
 
   const bookmarkHandler = async () => {
     try {
-      const res = await axios.get(`${SERVER}/post/${post?._id}/bookmark`, {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        `https://mohitsocialmedia.onrender.com/post/${post?._id}/bookmark`,
+        {
+          withCredentials: true,
+        }
+      );
       if (res.data.success) {
         toast.success(res.data.message);
       }
@@ -132,7 +140,7 @@ const Post = ({ post }) => {
   const followOrUnfollowHandler = async () => {
     try {
       const res = await axios.post(
-        `${SERVER}/user/followerorunfollow/${post.author._id}`,
+        `https://mohitsocialmedia.onrender.com/user/followerorunfollow/${post.author._id}`,
         {},
         {
           withCredentials: true,

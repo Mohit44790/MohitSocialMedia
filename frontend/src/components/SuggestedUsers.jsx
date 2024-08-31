@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { SERVER } from "./Server";
 
 const SuggestedUsers = () => {
   const { suggestedUsers } = useSelector((store) => store.auth);
@@ -26,7 +25,7 @@ const SuggestedUsers = () => {
     try {
       const action = followingStatus[userId] ? "unfollow" : "follow";
       const res = await axios.post(
-        `${SERVER}/user/followerorunfollow/${userId}`,
+        `https://mohitsocialmedia.onrender.com/user/followerorunfollow/${userId}`,
         {},
         {
           withCredentials: true,

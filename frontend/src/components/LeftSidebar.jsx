@@ -18,7 +18,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAuthUser } from "../redux/authSlice";
 import CreatePost from "./CreatePost";
 import { setPosts, setSelectedPost } from "../redux/postSlice";
-import { SERVER } from "./Server";
 
 const LeftSidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -32,9 +31,12 @@ const LeftSidebar = () => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.get(`${SERVER}/user/logout`, {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        "https://mohitsocialmedia.onrender.com/user/logout",
+        {
+          withCredentials: true,
+        }
+      );
       if (res.data.success) {
         dispatch(setAuthUser(null));
         dispatch(setSelectedPost(null));

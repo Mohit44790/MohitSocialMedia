@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { setPosts } from "../redux/postSlice"; // Import setPosts action
 import { FaImage, FaUserCircle } from "react-icons/fa"; // Import image icon from react-icons
-import { SERVER } from "./Server";
 
 const CreatePost = ({ open, setOpen }) => {
   const imageRef = useRef();
@@ -43,12 +42,16 @@ const CreatePost = ({ open, setOpen }) => {
 
     try {
       setLoading(true);
-      const res = await axios.post(`${SERVER}/post/addpost`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        "https://mohitsocialmedia.onrender.com/post/addpost",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
+      );
       if (res.data.success) {
         dispatch(setPosts([res.data.post, ...posts])); // Update posts in the Redux store
         setOpen(false); // Close modal after successful post creation

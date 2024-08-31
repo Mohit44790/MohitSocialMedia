@@ -4,7 +4,6 @@ import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
-import { SERVER } from "../Server";
 
 const SignUp = () => {
   const [input, setInput] = useState({
@@ -26,12 +25,16 @@ const SignUp = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post(`${SERVER}/user/register`, input, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        "https://mohitsocialmedia.onrender.com/user/register",
+        input,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
 
       if (res.data.success) {
         toast.success(res.data.message);

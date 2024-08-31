@@ -8,7 +8,6 @@ import CommentMessages from "./CommentMessages";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { setPosts } from "../redux/postSlice";
-import { SERVER } from "./Server";
 
 const Comments = ({ open, setOpen }) => {
   const [showOptions, setShowOptions] = useState(false);
@@ -41,7 +40,7 @@ const Comments = ({ open, setOpen }) => {
   const sendMessageHandler = async () => {
     try {
       const res = await axios.post(
-        `${SERVER}/post/${selectedPost?._id}/comment`,
+        "https://mohitsocialmedia.onrender.com/post/${selectedPost?._id}/comment",
         { text },
         {
           headers: {

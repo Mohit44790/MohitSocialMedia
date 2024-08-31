@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setPosts } from "../redux/postSlice";
-import { SERVER } from "../components/Server";
 
 const useGetAllPost = () => {
   const dispatch = useDispatch();
@@ -10,9 +9,12 @@ const useGetAllPost = () => {
   useEffect(() => {
     const fetchAllPost = async () => {
       try {
-        const res = await axios.get(`${SERVER}/post/all`, {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          "https://mohitsocialmedia.onrender.com/post/all",
+          {
+            withCredentials: true,
+          }
+        );
         if (res.data.success) {
           dispatch(setPosts(res.data.posts));
         }

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { setAuthUser } from "../redux/authSlice";
 import { toast } from "react-toastify";
 import { FaUserCircle } from "react-icons/fa";
-import { SERVER } from "./Server";
 
 const EditProfile = () => {
   const imageRef = useRef();
@@ -43,12 +42,16 @@ const EditProfile = () => {
     }
     try {
       setLoading(true);
-      const res = await axios.post(`${SERVER}/user/profile/edit`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      });
+      const res = await axios.post(
+        "https://mohitsocialmedia.onrender.com}/user/profile/edit",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
+      );
       if (res.data.success) {
         const updatedUserData = {
           ...user,
