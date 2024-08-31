@@ -11,7 +11,7 @@ const useGetAllStory = () => {
     const fetchAllStory = async () => {
       try {
         const res = await axios.get(
-          "https://mksocialmedia.onrender.com/stories/allStory",
+          "https://mksocialmedia.onrender.com/api/v1/stories/allStory",
           {
             withCredentials: true,
           }

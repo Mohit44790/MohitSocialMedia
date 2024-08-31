@@ -43,7 +43,7 @@ const CreatePost = ({ open, setOpen }) => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "https://mksocialmedia.onrender.com/post/addpost",
+        "https://mksocialmedia.onrender.com/api/v1/post/addpost",
         formData,
         {
           headers: {

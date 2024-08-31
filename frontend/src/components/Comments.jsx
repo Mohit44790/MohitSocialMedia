@@ -40,7 +40,7 @@ const Comments = ({ open, setOpen }) => {
   const sendMessageHandler = async () => {
     try {
       const res = await axios.post(
-        "https://mksocialmedia.onrender.com/post/${selectedPost?._id}/comment",
+        "https://mksocialmedia.onrender.com/api/v1/post/${selectedPost?._id}/comment",
         { text },
         {
           headers: {

@@ -29,7 +29,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "https://mksocialmedia.onrender.com/user/login",
+        "https://mksocialmedia.onrender.com/api/v1/user/login",
         input,
         {
           headers: {
