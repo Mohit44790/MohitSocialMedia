@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(urlencoded({ extended: true }));
 const corsOption = {
-  origin: "http://localhost:5173",
+  origin: "https://mohitsocialmedia.onrender.com",
   credentials: true,
 };
 app.use(cors(corsOption));

@@ -1,1 +1,1 @@
-export const SERVER = "http://localhost:8000/api/v1";
+export const SERVER = "https://mohitsocialmedia.onrender.com";
